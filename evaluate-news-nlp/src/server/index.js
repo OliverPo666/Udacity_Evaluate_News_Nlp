@@ -1,8 +1,13 @@
-var path = require('path')
-const express = require('express')
-const mockAPIResponse = require('./mockAPI.js')
+var path = require('path');
+const express = require('express');
+const mockAPIResponse = require('./mockAPI.js');
+const dotenv = require('dotenv');
+const textapi = new meaningCloud ({
+    application_key: process.env.API_KEY
+  });
+const app = express();
 
-const app = express()
+dotenv.config();
 
 app.use(express.static('dist'))
 
